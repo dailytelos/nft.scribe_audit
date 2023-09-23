@@ -1,0 +1,494 @@
+[
+    {
+        "description": "ACTION netwreg - First registration of eth.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwreg",
+            {
+                "id": "eth.mainnet",
+                "title": "Ethereum Mainnet",
+                "chain_id": "1",
+                "ticker": "ETH",
+                "block_expl": "https://etherscan.io"
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify netwreg - Check values for eth.mainnet",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "eth.mainnet",
+            "upper_bound": "eth.mainnet"
+        },
+        "expectedValues": {
+            "id": "eth.mainnet",
+            "title": "Ethereum Mainnet",
+            "chain_id": "1",
+            "ticker": "ETH",
+            "block_expl": "https://etherscan.io"
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwactive - Set eth.mainnet to active",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "eth.mainnet",
+                "active": 1
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE networks - Check eth.mainnet is active",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "eth.mainnet",
+            "upper_bound": "eth.mainnet"
+        },
+        "expectedValues": {
+            "active": 1
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwactive - Set eth.mainnet to not active",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "eth.mainnet",
+                "active": 0
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE networks - Check eth.mainnet is not active",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "eth.mainnet",
+            "upper_bound": "eth.mainnet"
+        },
+        "expectedValues": {
+            "active": 0
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwactive - Set eth.mainnet to active once more",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "eth.mainnet",
+                "active": 1
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE networks - Check eth.mainnet is active once more",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "eth.mainnet",
+            "upper_bound": "eth.mainnet"
+        },
+        "expectedValues": {
+            "active": 1
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwthresh",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwthresh",
+            {
+                "id": "eth.mainnet",
+                "threshold": 3
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwreg - First registration of bsc.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwreg",
+            {
+                "id": "bsc.mainnet",
+                "title": "Binance Smart Chain Mainnet",
+                "chain_id": "56",
+                "ticker": "BNB",
+                "block_expl": "https://bscscan.com"
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify netwreg - Check values for bsc.mainnet",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "bsc.mainnet",
+            "upper_bound": "bsc.mainnet"
+        },
+        "expectedValues": {
+            "id": "bsc.mainnet",
+            "title": "Binance Smart Chain Mainnet",
+            "chain_id": "56",
+            "ticker": "BNB",
+            "block_expl": "https://bscscan.com"
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwactive - Set bsc.mainnet to active",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "bsc.mainnet",
+                "active": 1
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE networks - Check bsc.mainnet is active",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "bsc.mainnet",
+            "upper_bound": "bsc.mainnet"
+        },
+        "expectedValues": {
+            "active": 1
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwactive - Set bsc.mainnet to not active",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "bsc.mainnet",
+                "active": 0
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE networks - Check bsc.mainnet is not active",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "bsc.mainnet",
+            "upper_bound": "bsc.mainnet"
+        },
+        "expectedValues": {
+            "active": 0
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwactive - Set bsc.mainnet to active once more",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "bsc.mainnet",
+                "active": 1
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE networks - Check bsc.mainnet is active once more",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "nft.scribe",
+            "table": "networks",
+            "limit": 1,
+            "lower_bound": "bsc.mainnet",
+            "upper_bound": "bsc.mainnet"
+        },
+        "expectedValues": {
+            "active": 1
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION netwthresh for bsc.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwthresh",
+            {
+                "id": "bsc.mainnet",
+                "threshold": 3
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwreg for eth.mainnet as orc1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwreg",
+            {
+                "id": "eth.mainnet",
+                "title": "Ethereum Mainnet",
+                "chain_id": "1",
+                "ticker": "ETH",
+                "block_expl": "https://etherscan.io"
+            },
+            "orc1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwreg for eth.mainnet as usr1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwreg",
+            {
+                "id": "eth.mainnet",
+                "title": "Ethereum Mainnet",
+                "chain_id": "1",
+                "ticker": "ETH",
+                "block_expl": "https://etherscan.io"
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwreg for bsc.mainnet as orc1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwreg",
+            {
+                "id": "bsc.mainnet",
+                "title": "Binance Smart Chain",
+                "chain_id": "56",
+                "ticker": "BNB",
+                "block_expl": "https://bscscan.com/"
+            },
+            "orc1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwreg for bsc.mainnet as usr1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwreg",
+            {
+                "id": "bsc.mainnet",
+                "title": "Binance Smart Chain",
+                "chain_id": "56",
+                "ticker": "BNB",
+                "block_expl": "https://bscscan.com/"
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwactive for eth.mainnet as orc1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "eth.mainnet",
+                "active": 1
+            },
+            "orc1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwactive for eth.mainnet as usr1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "eth.mainnet",
+                "active": 1
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwthresh for eth.mainnet as orc1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwthresh",
+            {
+                "id": "eth.mainnet",
+                "threshold": 3
+            },
+            "orc1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwthresh for eth.mainnet as usr1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwthresh",
+            {
+                "id": "eth.mainnet",
+                "threshold": 3
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwactive for bsc.mainnet as orc1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "bsc.mainnet",
+                "active": 1
+            },
+            "orc1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwactive for bsc.mainnet as usr1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwactive",
+            {
+                "id": "bsc.mainnet",
+                "active": 1
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwthresh for bsc.mainnet as orc1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwthresh",
+            {
+                "id": "bsc.mainnet",
+                "threshold": 3
+            },
+            "orc1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "checking permissions - Attempt to call ACTION netwthresh for bsc.mainnet as usr1.scribe",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "netwthresh",
+            {
+                "id": "bsc.mainnet",
+                "threshold": 3
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    }
+]
