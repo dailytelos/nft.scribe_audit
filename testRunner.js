@@ -1,3 +1,4 @@
+//testRunner.js
 const { Api, JsonRpc } = require('eosjs');
 const { JsSignatureProvider } = require('eosjs/dist/eosjs-jssig'); 
 const fetch = require('node-fetch');
