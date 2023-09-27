@@ -8,7 +8,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "@eosrio/hyperion-stream-client": "^1.0.3",
     "chai": "^4.3.8",
@@ -18,5 +17,17 @@
   },
   "devDependencies": {
     "mocha": "^10.2.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dailytelos/nft.scribe_audit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dailytelos/nft.scribe_audit/issues"
+  },
+  "homepage": "https://github.com/dailytelos/nft.scribe_audit#readme",
+  "description": ""
 }
