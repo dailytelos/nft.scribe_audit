@@ -505,5 +505,111 @@
             "apisource": "https://api.example.com"
         },
         "shouldFail": false
+    },
+    {
+        "description": "ACTION orcregister - Registering new oracle orc2.scribe for eth.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "orcregister",
+            {
+                "auth": "nft.scribe",
+                "oracle_id": "orc2.scribe",
+                "network_id": "eth.mainnet",
+                "apisource": "https://api.example.com"
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE oracles - Check values for newly registered oracle on eth.mainnet",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "eth.mainnet",
+            "table": "oracles",
+            "limit": 1,
+            "lower_bound": "orc2.scribe",
+            "upper_bound": "orc2.scribe"
+        },
+        "expectedValues": {
+            "id": "orc2.scribe",
+            "network_id": "eth.mainnet",
+            "active": 0,
+            "apisource": "https://api.example.com"
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION orcregister - Registering new oracle orc3.scribe for eth.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "orcregister",
+            {
+                "auth": "nft.scribe",
+                "oracle_id": "orc3.scribe",
+                "network_id": "eth.mainnet",
+                "apisource": "https://api.example.com"
+            },
+            "nft.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE oracles - Check values for newly registered oracle on eth.mainnet",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "eth.mainnet",
+            "table": "oracles",
+            "limit": 1,
+            "lower_bound": "orc3.scribe",
+            "upper_bound": "orc3.scribe"
+        },
+        "expectedValues": {
+            "id": "orc3.scribe",
+            "network_id": "eth.mainnet",
+            "active": 0,
+            "apisource": "https://api.example.com"
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION orcstatus - Updating oracle status to active for eth.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "orcstatus",
+            {
+                "oracle_id": "orc2.scribe",
+                "network_id": "eth.mainnet",
+                "active": 1
+            },
+            "orc2.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION orcstatus - Updating oracle status to active for eth.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "orcstatus",
+            {
+                "oracle_id": "orc3.scribe",
+                "network_id": "eth.mainnet",
+                "active": 1
+            },
+            "orc3.scribe",
+            "active"
+        ],
+        "shouldFail": false
     }
 ]
