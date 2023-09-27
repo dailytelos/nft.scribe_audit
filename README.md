@@ -14,7 +14,7 @@
 
 ### Setup & Running the Code Audit
 - Deploy local node and run on: http://localhost:8888
-- Create following accounts with Developer Key: EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV
+- Create following accounts with Developer Key: `EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV``
     - `nft.scribe`: deploy the contract nft.scribe, set `nft.scribe@eosio.code` permission on active
     - `orc1.scribe` `orc2.scribe` `orc3.scribe`: for managing oracles, same private key
     - `usr1.scribe` `usr2.scribe` `usr3.scribe`: user accounts, same private key
