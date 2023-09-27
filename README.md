@@ -1,16 +1,21 @@
 
+## nft.scribe Code Audit
+
+Lead developer @tlccstudio has several years authoring and debugging AntelopeIO C++ contracts and has [found one critical bug in 2022 for AntelopeIO C++ pNetwork contracts](https://github.com/provable-things/ptokens-eos-smart-contracts/issues/1), with several million in staked bridge capital at risk.
+
 ### Completed So Far (✅ or ❌ or 👷)
 - 👷 Automated: Unit testing of functions w/ out of bounds tests
 - 👷 Automated: Table value matching pushed data
 - ❌ Automated: Table value addition / subtraction / other tests
 - ❌ Manual: Logic Conceptual Tests, Edge Cases & Other Investigations
 - ❌ Automated: Virtual Account Tests
+- ❌ Automated: Fake Token Contract Deposits Test
 
 ### Install
-`git clone <github_repo_url>`
-`cd ./nft.scribe_audit`
-`npm init -y`
-`npm install mocha --save-dev`
+- `git clone <github_repo_url>`
+- `cd ./nft.scribe_audit`
+- `npm init -y`
+- `npm install mocha --save-dev`
 
 ### Setup & Running the Code Audit
 - Deploy local node and run on: http://localhost:8888
