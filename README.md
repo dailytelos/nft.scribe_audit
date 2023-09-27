@@ -1,7 +1,7 @@
 
 ## nft.scribe Code Audit
 
-Lead developer @tlccstudio has several years authoring and debugging AntelopeIO C++ contracts and has [found one critical bug in 2022 for AntelopeIO C++ pNetwork contracts](https://github.com/provable-things/ptokens-eos-smart-contracts/issues/1), with several million in staked bridge capital at risk.
+Lead developer @tlccstudio has several years experience authoring and debugging AntelopeIO C++ contracts and has found one [critical bug in 2022](https://github.com/provable-things/ptokens-eos-smart-contracts/issues/1), for AntelopeIO C++ pNetwork contracts, with several million in staked bridge capital at risk.
 
 ### Completed So Far (✅ or ❌ or 👷)
 - 👷 Automated: Unit testing of functions w/ out of bounds tests
