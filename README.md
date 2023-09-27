@@ -18,9 +18,10 @@ This repository serves as documented due-diligence performed on the nft.scribe s
 - 👷 Automated: Table value matching pushed data
 - ❌ Automated: Table value addition / subtraction / other tests
 - ❌ Automated: Virtual Account Tests
-- ❌ Automated: Fake Token Contract Deposits Test
 - ❌ Automated: String Size Limitation Testing
-### 3. Automated Tests
+### 3. Security Tests
+- ❌ Automated: Fake Token Contract Deposits Test
+- ❌ Automated: `ACTION post` testing, invalid actions, invalid targets, etc.
 
 ### Install
 - `git clone <github_repo_url>`
