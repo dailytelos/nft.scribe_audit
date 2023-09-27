@@ -64,7 +64,7 @@ function logErrorToFile(errorDesc, data) {
 describe('nft.scribe testing...', () => {
 
     beforeEach(done => {
-        setTimeout(done, 100);
+        setTimeout(done, 600);
     });
 
     testFilesData.forEach(({ name, data }) => {
@@ -85,47 +85,17 @@ describe('nft.scribe testing...', () => {
                             assert.exists(tableRows.rows, 'Table is empty');
                             const firstRow = tableRows.rows[0];
                             for (const key in test.expectedValues) {
-
-                                if (firstRow && "oracle" in firstRow) {
+                                if ("oracle" in firstRow) {
                                     if(firstRow.oracle[key] !== test.expectedValues[key]) {
                                         logErrorToFile("tableRows provided...", tableRows);
-                                        logErrorToFile(`Error struct_oracle: ${key} does not match A`, firstRow.oracle[key]);
+                                        logErrorToFile(`Error struct_oracle: ${key} does not match`, firstRow.oracle[key]);
                                     }
-                                    assert.equal(firstRow.oracle[key], test.expectedValues[key], `${key} does not match A`);
-                                } else if (firstRow && "t" in firstRow) {
-                                    if(firstRow.t[key] !== test.expectedValues[key]) {
-                                        logErrorToFile("tableRows provided...", tableRows);
-                                        logErrorToFile(`Error struct_token: ${key} does not match B`, firstRow.t[key]);
-                                    }
-                                    assert.equal(firstRow.t[key], test.expectedValues[key], `${key} does not match B`);
-                                } else if ((firstRow && "contracts" in firstRow) && (key == "contracts")) {
-                                    var strContractsFirstRow = JSON.stringify(firstRow.contracts);
-                                    var strContractsExpected = JSON.stringify(test.expectedValues[key]);
-
-                                    if(strContractsFirstRow !== strContractsExpected) {
-                                        logErrorToFile("tableRows provided...", tableRows);
-                                        logErrorToFile("Error contracts: " + strContractsExpected + " does not match C " + strContractsFirstRow, []);
-                                    }
-
-                                    assert.equal(strContractsFirstRow, strContractsExpected, `${key} array does not match C`);
-                                } else if (firstRow && key === "tokens" && "tokens" in firstRow) {
-                                    var found = false;
-                                
-                                    for(var i=0; i < firstRow.tokens.length; i++) {
-                                        if(firstRow.tokens[i].id == test.expectedValues[key]) { found = true; }
-                                    }
-                                
-                                    if(!found) {
-                                        logErrorToFile("tableRows provided...", tableRows);
-                                        logErrorToFile("Error contracts: " + strtokensExpected + " does not match D" + strTokensFirstRow, []);
-                                    }
-                                
-                                    assert.isTrue(found, `${key} did not have matching id value D`);
+                                    assert.equal(firstRow.oracle[key], test.expectedValues[key], `${key} does not match`);
                                 } else {
                                     if (firstRow[key] !== test.expectedValues[key]) {
-                                        logErrorToFile(`${key} does not match E`, firstRow[key]);
+                                        logErrorToFile(`${key} does not match`, firstRow[key]);
                                     }
-                                    assert.equal(firstRow[key], test.expectedValues[key], `${key} does not match E`);
+                                    assert.equal(firstRow[key], test.expectedValues[key], `${key} does not match`);
                                 }
                             }
                         }

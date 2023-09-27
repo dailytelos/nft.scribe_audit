@@ -1,0 +1,319 @@
+[
+    {
+        "description": "ACTION nftregister - Registering a new NFT",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftregister",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "nftcontract": "0x14c5aF00E7b98BA6eD87E0d40994Ed8Ad0219507",
+                "nft_qty": 10000,
+                "contracts": ["0x367f9Dd1A98BB0a1eA97E6918BB7edF8752015e5"],
+                "admin": "usr1.scribe",
+                "evm_owner": "",
+                "website": "https://example.com",
+                "admin_email": "admin@example.com"
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE nfts - Check values for newly registered NFT",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "eth.mainnet",
+            "table": "nftservices",
+            "limit": 1,
+            "lower_bound": "nft",
+            "upper_bound": "nft"
+        },
+        "expectedValues": {
+            "suffix": "nft",
+            "nftcontract": "0x14c5aF00E7b98BA6eD87E0d40994Ed8Ad0219507",
+            "nft_qty": 10000,
+            "contracts": ["0x367f9Dd1A98BB0a1eA97E6918BB7edF8752015e5"],
+            "admin": "usr1.scribe",
+            "evm_owner": "",
+            "website": "https://example.com",
+            "admin_email": "admin@example.com"
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftactive - Activating the NFT",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftactive",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "active": 1
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE nfts - Check NFT activation status",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "eth.mainnet",
+            "table": "nftservices",
+            "limit": 1,
+            "lower_bound": "nft",
+            "upper_bound": "nft"
+        },
+        "expectedValues": {
+            "suffix": "nft",
+            "nftcontract": "0x14c5aF00E7b98BA6eD87E0d40994Ed8Ad0219507",
+            "nft_qty": 10000,
+            "contracts": ["0x367f9Dd1A98BB0a1eA97E6918BB7edF8752015e5"],
+            "admin": "usr1.scribe",
+            "evm_owner": "",
+            "website": "https://example.com",
+            "admin_email": "admin@example.com",
+            "active": 1
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftactive - Deactivating the NFT",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftactive",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "active": 0
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE nfts - Check NFT activation status",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "eth.mainnet",
+            "table": "nftservices",
+            "limit": 1,
+            "lower_bound": "nft",
+            "upper_bound": "nft"
+        },
+        "expectedValues": {
+            "suffix": "nft",
+            "nftcontract": "0x14c5aF00E7b98BA6eD87E0d40994Ed8Ad0219507",
+            "nft_qty": 10000,
+            "contracts": ["0x367f9Dd1A98BB0a1eA97E6918BB7edF8752015e5"],
+            "admin": "usr1.scribe",
+            "evm_owner": "",
+            "website": "https://example.com",
+            "admin_email": "admin@example.com",
+            "active": 0
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftactive - Out of bounds test with -1",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftactive",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "active": -1
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "ACTION nftactive - Out of bounds test with 2",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftactive",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "active": 2
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "ACTION nftaddtoken - Adding token with id 2",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftaddtoken",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "token_id": 2
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftaddtoken - Adding token with id 2",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftaddtoken",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "token_id": 2
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },
+    {
+        "description": "verify TABLE nftservices - Check values for token with id 2",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "eth.mainnet",
+            "table": "nftservices",
+            "limit": 1,
+            "lower_bound": "nft",
+            "upper_bound": ""
+        },
+        "expectedValues": {
+            "tokens": 2
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftaddtoken - Adding token with id 3",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftaddtoken",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "token_id": 3
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "verify TABLE nftservices - Check values for token with id 3",
+        "function": "get_table_rows",
+        "params": {
+            "json": true,
+            "code": "nft.scribe",
+            "scope": "eth.mainnet",
+            "table": "nftservices",
+            "limit": 1,
+            "lower_bound": "nft",
+            "upper_bound": ""
+        },
+        "expectedValues": {
+            "tokens": 2
+        },
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftdeltoken - Deleting token with id 3",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftdeltoken",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "token_id": 3
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftaddtoken - Adding token with id 5 (should fail)",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftaddtoken",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "token_id": 5
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    },{
+        "description": "ACTION nftdeltoken - Deleting token with id 2",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftdeltoken",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "token_id": 2
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION nftdeltoken - Deleting token with id 3",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "nftdeltoken",
+            {
+                "auth": "usr1.scribe",
+                "suffix": "nft",
+                "network_id": "eth.mainnet",
+                "token_id": 3
+            },
+            "usr1.scribe",
+            "active"
+        ],
+        "shouldFail": true
+    }
+]
