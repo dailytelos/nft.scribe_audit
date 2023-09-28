@@ -3,7 +3,7 @@
 
 Developement of nft.scribe contract by tlccstudio, who has several years experience authoring and debugging AntelopeIO C++ contracts and has found one [critical bug in 2022](https://dailytelos.net/wp-content/uploads/2023/09/critical_bug-1.jpg), for AntelopeIO C++ pNetwork contracts, with several million in staked bridge capital at risk.
 
-This repository serves as documented due-diligence performed on the nft.scribe smart contract minimize risk of security breaches and ensure predictable functioning of code that handles virtual accounts.  An audit performed by a 3rd party would be more ideal, but until such time, this code serves as a public reference to the open-source code audit performed on the system thus far.  Certainly additional measures can be implemented in the future if this code base is to be relied upon.
+This repository serves as documented due-diligence performed on the nft.scribe smart contract minimize risk of security breaches and ensure predictable functioning of code that handles virtual accounts.  An audit performed by a 3rd party would be more ideal, but until such time, this code serves as a public reference to the open-source code audit performed on the system thus far.  Certainly additional measures can be implemented in the future if this code base is to be widely relied upon.
 
 *This audit does not serve as a basis for official attestation or guaranteee for the nft.scribe smart contract as being totally bug free, or totally secure.*
 
