@@ -13,15 +13,19 @@ This repository serves as documented due-diligence performed on the nft.scribe s
 - ❌ Manual: Code Logic Review, private functions
 - ❌ Manual: Code Logic Review, structures / structure functions
 - ❌ Manual: CPU Efficiency Study & Plan for improvement
-### 2. Automated Tests
+### 2. Automated Tests of Public ACTION's
 - 👷 Automated: Unit testing of functions w/ out of bounds tests
 - 👷 Automated: Table value matching pushed data
 - ❌ Automated: Table value addition / subtraction / other tests
 - ❌ Automated: Virtual Account Tests
 - ❌ Automated: String Size Limitation Testing
-### 3. Security Tests
+### 3. Manual Tests
+- 👷 Manual: Unit Tests of Internal Private Functions
+- ❌ Manual: Unit Tests of External Private Functions not part of 
+### 4. Security Tests
 - ❌ Automated: Fake Token Contract Deposits Test
 - ❌ Automated: `ACTION post` testing, invalid actions, invalid targets, invalid string data to exploit, etc.
+- ❌ Manual: Explore ramifications of other contracts interacting / denying transactions sent to them
 
 ### Install
 - `git clone <github_repo_url>`
@@ -36,6 +40,8 @@ This repository serves as documented due-diligence performed on the nft.scribe s
     - `orc1.scribe` `orc2.scribe` `orc3.scribe`: for managing oracles, same private key
     - `usr1.scribe` `usr2.scribe` `usr3.scribe`: user accounts, same private key
     - `eosio.token`: eosio.token contract deployed, be sure to set key and create some TLOS token on it
-    - `tkn1.token` `tkn2.token` `tkn3.token`: also deploy eosio.token contract, same private key
+    - `tkn1.scribe` `tkn2.scribe` `tkn3.scribe`: also deploy eosio.token contract, same private key
+    - `call nft.scribe ACTION sysdefaults()`: to initialize the nft.scribe values
+    - `call nft.scribe ACTION sysfreeze(0)`: to remove freeze status for operation
 - `npm test` command in terminal begins running automated tests.  See documentation for Manual tests performed.
 

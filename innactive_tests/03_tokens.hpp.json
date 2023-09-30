@@ -36,14 +36,14 @@
         "shouldFail": false
     },
     {
-        "description": "ACTION sysaddtoken - Registering new token tkn2.token with symbol TWO",
+        "description": "ACTION sysaddtoken - Registering new token tkn2.scribe with symbol TWO",
         "function": "sendTransaction",
         "params": [
             "nft.scribe",
             "sysaddtoken",
             {
                 "id": 2,
-                "contract": "tkn2.token",
+                "contract": "tkn2.scribe",
                 "sym_code": "TWO",
                 "prec": 4
             },
@@ -53,7 +53,7 @@
         "shouldFail": false
     },
     {
-        "description": "verify TABLE tokens - Check values for newly registered token tkn2.token",
+        "description": "verify TABLE tokens - Check values for newly registered token tkn2.scribe",
         "function": "get_table_rows",
         "params": {
             "json": true,
@@ -66,20 +66,20 @@
         },
         "expectedValues": {
             "id": 2,
-            "contract": "tkn2.token",
+            "contract": "tkn2.scribe",
             "token": "0.0000 TWO"
         },
         "shouldFail": false
     },
     {
-        "description": "ACTION sysaddtoken - Registering new token tkn3.token with symbol THR",
+        "description": "ACTION sysaddtoken - Registering new token tkn3.scribe with symbol THR",
         "function": "sendTransaction",
         "params": [
             "nft.scribe",
             "sysaddtoken",
             {
                 "id": 3,
-                "contract": "tkn3.token",
+                "contract": "tkn3.scribe",
                 "sym_code": "THR",
                 "prec": 4
             },
@@ -89,7 +89,7 @@
         "shouldFail": false
     },
     {
-        "description": "verify TABLE tokens - Check values for newly registered token tkn3.token",
+        "description": "verify TABLE tokens - Check values for newly registered token tkn3.scribe",
         "function": "get_table_rows",
         "params": {
             "json": true,
@@ -102,20 +102,20 @@
         },
         "expectedValues": {
             "id": 3,
-            "contract": "tkn3.token",
+            "contract": "tkn3.scribe",
             "token": "0.0000 THR"
         },
         "shouldFail": false
     },
     {
-        "description": "ACTION sysaddtoken - Registering new token tkn1.token with symbol ONE",
+        "description": "ACTION sysaddtoken - Registering new token tkn1.scribe with symbol ONE",
         "function": "sendTransaction",
         "params": [
             "nft.scribe",
             "sysaddtoken",
             {
                 "id": 10,
-                "contract": "tkn1.token",
+                "contract": "tkn1.scribe",
                 "sym_code": "ONE",
                 "prec": 4
             },
@@ -125,7 +125,7 @@
         "shouldFail": false
     },
     {
-        "description": "verify TABLE tokens - Check values for newly registered token tkn1.token",
+        "description": "verify TABLE tokens - Check values for newly registered token tkn1.scribe",
         "function": "get_table_rows",
         "params": {
             "json": true,
@@ -138,13 +138,13 @@
         },
         "expectedValues": {
             "id": 10,
-            "contract": "tkn1.token",
+            "contract": "tkn1.scribe",
             "token": "0.0000 ONE"
         },
         "shouldFail": false
     },
     {
-        "description": "ACTION sysdeltoken - Deleting token tkn1.token",
+        "description": "ACTION sysdeltoken - Deleting token tkn1.scribe",
         "function": "sendTransaction",
         "params": [
             "nft.scribe",
@@ -158,7 +158,7 @@
         "shouldFail": false
     },
     {
-        "description": "verify TABLE tokens - Ensure token tkn1.token is deleted",
+        "description": "verify TABLE tokens - Ensure token tkn1.scribe is deleted",
         "function": "get_table_rows",
         "params": {
             "json": true,

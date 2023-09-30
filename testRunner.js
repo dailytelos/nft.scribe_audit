@@ -154,30 +154,102 @@ describe('nft.scribe - Unit Tests for networks, oracles, tokens, and nftservice.
 });
 
 
-describe('nft.scribe - Unit Tests for posts.hpp...', () => {
+describe('nft.scribe - Unit Tests for posts.hpp (new.user)...', () => {
 
     beforeEach(done => {
-        setTimeout(done, 600);
+        setTimeout(done, 50);
+    });
+
+    it('activateOracleStatus - orc1.scribe', async () => {
+        const activeOracleResult1 = await activateOracleStatus("orc1.scribe", "eth.mainnet", 1);
+    });
+
+    it('activateOracleStatus - orc2.scribe', async () => {
+        const activeOracleResult2 = await activateOracleStatus("orc2.scribe", "eth.mainnet", 1);
+    });
+
+    it('activateOracleStatus - orc3.scribe', async () => {
+        const activeOracleResult3 = await activateOracleStatus("orc3.scribe", "eth.mainnet", 1);
     });
 
     it('ACTION post by orc1.scribe', async () => {
 
-        const activeOracleResult = await activateOracleStatus("orc1.scribe", "eth.mainnet", 1);
+        // Check the networks table for post_count
+        var networkRows = await rpc.get_table_rows({
+            json: true,
+            code: 'nft.scribe',
+            scope: 'nft.scribe', // Assuming the scope for networks table is 'nft.scribe'
+            table: 'networks',
+            limit: 1,
+            lower_bound: 'eth.mainnet'
+        });
+
+        //grab starting post_count
+        const postCount_start = networkRows.rows[0].post_count;
 
         // Define the constants
         const network_id = "eth.mainnet";
         const suffix = "nft";
         const contract = "nft.scribe";
         const post_action = "new.user";
-        const userid = "ape.1.nft";
+        const userid = "";
         const sign_type = 4; // "eth_signtypeddata_v4" corresponds to the value 4
         const evm_pub_key = "0x3335e5c6094ad126Bb497b122f8D5F42E0D4A4de";
         const nft_id = 1;
-        const unsigned_data = "{domain:{chainId:chainId.toString(),name:'EtherMail',verifyingContract:'0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC',version:'1',},message:{contents:'Hello,Bob!',from:{name:'Cow',wallets:['0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826','0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF',],},to:[{name:'Bob',wallets:['0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB','0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57','0xB0B0b0b0b0b0B000000000000000000000000000',],},],},primaryType:'Mail',types:{EIP712Domain:[{name:'name',type:'string'},{name:'version',type:'string'},{name:'chainId',type:'uint256'},{name:'verifyingContract',type:'address'},],Group:[{name:'name',type:'string'},{name:'members',type:'Person[]'},],Mail:[{name:'from',type:'Person'},{name:'to',type:'Person[]'},{name:'contents',type:'string'},],Person:[{name:'name',type:'string'},{name:'wallets',type:'address[]'},],},}"; 
+
+        var tMoment = moment().utc();
+        var tMomentPlus30 = moment().utc().add(180, 'seconds');
+
+        const tps_posted = tMoment.format('YYYY-MM-DD HH:mm:ss');
+        const tps_created = tMoment.format('YYYY-MM-DD HH:mm:ss');
+        const tps_expires = tMomentPlus30.format('YYYY-MM-DD HH:mm:ss');
+        const tps_postedv2 = tMoment.format('YYYY-MM-DDTHH:mm:ss');
+        const tps_createdv2 = tMoment.format('YYYY-MM-DDTHH:mm:ss');
+        const tps_expiresv2 = tMomentPlus30.format('YYYY-MM-DDTHH:mm:ss');
+
+        const unsigned_data = '{\
+            "domain":{\
+                "chainId": "0x1",\
+                "name":"Test",\
+                "verifyingContract":"0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC",\
+                "version":"1"\
+            },\
+            "message":{\
+                "network_id": "eth.mainnet",\
+                "suffix": "nft",\
+                "contract": "nft.scribe",\
+                "post_action": "new.user",\
+                "userid": "",\
+                "tps_created": "' + tps_created + '",\
+                "tps_expires": "' + tps_expires + '",\
+                "exe_data": "1.nft|name.null...a|0|0|0|0|||0.0000 NULL"\
+            }\
+        }'; 
+
         const signed_data = "0x4874834a1eab6fddefae5b9a33f28632f8de5c61c89bf0495cc398e093d63c0161a3cd9d2758b1f9d3031dbb155cfa082f48ab14d3a2a07f008a4639a3aa08731c";
-        const tps_posted = moment().format('YYYY-MM-DD HH:mm:ss');
-        const tps_created = moment().format('YYYY-MM-DD HH:mm:ss');
-        const tps_expires = moment().add(30, 'seconds').format('YYYY-MM-DD HH:mm:ss');
+    
+        //example of unsigned data:"network_id""suffix""contract""post_action""userid""tps_created""tps_expires""exe_data"
+        //example exe_data for new.user: "name.null...a,name.null...a,0,0,0,0,,,0.0000 NULL"
+
+        //current format of unsigned_data string
+        /*{
+            "domain":{
+                "chainId": "0x1",
+                "name":'Test',
+                "verifyingContract":'0xCcCCccccCCCCcCCCCCCcCcCccCcCCCcCcccccccC',
+                "version":'1'
+            },
+            "message":{
+                "network_id": "eth.mainnet",
+                "suffix": "nft",
+                "contract": "nft.scribe",
+                "post_action": "new.user",
+                "userid": "",
+                "tps_created": tps_created,
+                "tps_expires": tps_expires,
+                "exe_data": "name.null...a|name.null...a|0|0|0|0|||0.0000 NULL"
+            }
+        }*/
 
         // Call the post ACTION
         const postResult = await sendTransaction('nft.scribe', 'post', {
@@ -224,26 +296,31 @@ describe('nft.scribe - Unit Tests for posts.hpp...', () => {
         assert.equal(latestPost.post.nft_id, nft_id, 'NFT ID does not match');
         assert.equal(latestPost.post.unsigned_data, unsigned_data, 'Unsigned data does not match');
         assert.equal(latestPost.post.signed_data, signed_data, 'Signed data does not match');
-        assert.equal(latestPost.post.tps_posted, tps_posted, 'Posted timestamp does not match');
-        assert.equal(latestPost.post.tps_created, tps_created, 'Created timestamp does not match');
-        assert.equal(latestPost.post.tps_expires, tps_expires, 'Expiration timestamp does not match');
+        assert.equal(latestPost.post.tps_posted, tps_postedv2, 'Posted timestamp does not match');
+        assert.equal(latestPost.post.tps_created, tps_createdv2, 'Created timestamp does not match');
+        assert.equal(latestPost.post.tps_expires, tps_expiresv2, 'Expiration timestamp does not match');
 
 
         // Check the networks table for post_count
-        const networkRows = await rpc.get_table_rows({
+        networkRows = await rpc.get_table_rows({
             json: true,
             code: 'nft.scribe',
             scope: 'nft.scribe', // Assuming the scope for networks table is 'nft.scribe'
             table: 'networks',
-            limit: 1
+            limit: 1,
+            lower_bound: 'eth.mainnet'
         });
 
         assert.exists(networkRows.rows, 'Networks table is empty');
-        const postCount = networkRows.rows[0].post_count;
-        assert.equal(postCount, 1, 'Post count did not increase');
+
+        const postCount_end = networkRows.rows[0].post_count;
+        assert.equal(parseInt(postCount_start) + 1, parseInt(postCount_end), 'Post count did not increase');
     });
 
-    it('ACTION upvote by orc2.scribe and orc3.scribe', async () => {
+    var latestPostId;
+    var updatedPost;
+
+    it('Fetching posts for latestPostID', async () => {
         // Fetch the latest post id from the posts table
         const tableRows = await rpc.get_table_rows({
             json: true,
@@ -254,26 +331,22 @@ describe('nft.scribe - Unit Tests for posts.hpp...', () => {
             reverse: true
         });
 
-        const latestPostId = tableRows.rows[0].id;
+        latestPostId = tableRows.rows[0].id;
+    });
 
+
+    it('orc2.scribe - Upvote test', async () => {
         // Call the upvote ACTION for orc2.scribe
         const upvoteResultOrc2 = await sendTransaction('nft.scribe', 'upvote', {
             oracle_id: 'orc2.scribe',
             network_id: 'eth.mainnet',
             posts_id: latestPostId
-        }, 'orc2.scribe', 'active');
+        }, 'orc2.scribe', 'active');    
 
         assert.exists(upvoteResultOrc2.transaction_id, 'Upvote by orc2.scribe failed');
+    });
 
-        // Call the upvote ACTION for orc3.scribe
-        const upvoteResultOrc3 = await sendTransaction('nft.scribe', 'upvote', {
-            oracle_id: 'orc3.scribe',
-            network_id: 'eth.mainnet',
-            posts_id: latestPostId
-        }, 'orc3.scribe', 'active');
-
-        assert.exists(upvoteResultOrc3.transaction_id, 'Upvote by orc3.scribe failed');
-
+    it('TABLE posts, 1 upvotes added?', async () => {
         // Fetch the latest post again to verify the upvotes
         const updatedTableRows = await rpc.get_table_rows({
             json: true,
@@ -281,15 +354,49 @@ describe('nft.scribe - Unit Tests for posts.hpp...', () => {
             scope: 'eth.mainnet',
             table: 'posts',
             limit: 1,
-            reverse: true
+            lower_bound: latestPostId
         });
 
-        const updatedPost = updatedTableRows.rows[0];
+        updatedPost = updatedTableRows.rows[0];
         assert.include(updatedPost.post.upvotes, 'orc2.scribe', 'Upvote by orc2.scribe not found');
-        assert.include(updatedPost.post.upvotes, 'orc3.scribe', 'Upvote by orc3.scribe not found');
-
-        const deActiveOracleResult = await activateOracleStatus("orc1.scribe", "eth.mainnet", 0);
     });
 
-    // ... other tests
+    it('orc3.scribe - Downvote test', async () => {
+        // Call the upvote ACTION for orc3.scribe
+        const upvoteResultOrc3 = await sendTransaction('nft.scribe', 'downvote', {
+            oracle_id: 'orc3.scribe',
+            network_id: 'eth.mainnet',
+            posts_id: latestPostId
+        }, 'orc3.scribe', 'active');    
+
+        assert.exists(upvoteResultOrc3.transaction_id, 'Upvote by orc3.scribe failed');
+    });
+
+    it('TABLE posts, 1 downvotes added?', async () => {
+        // Fetch the latest post again to verify the upvotes
+        const updatedTableRows = await rpc.get_table_rows({
+            json: true,
+            code: 'nft.scribe',
+            scope: 'eth.mainnet',
+            table: 'posts',
+            limit: 1,
+            lower_bound: latestPostId
+        });
+
+        updatedPost = updatedTableRows.rows[0];
+        assert.include(updatedPost.post.downvotes, 'orc3.scribe', 'Upvote by orc3.scribe not found');
+    });
+
+    it('DeActivateOracleStatus - orc1.scribe', async () => {
+        const activeOracleResult1 = await activateOracleStatus("orc1.scribe", "eth.mainnet", 0);
+    });
+
+    it('DeActivateOracleStatus - orc2.scribe', async () => {
+        const activeOracleResult2 = await activateOracleStatus("orc2.scribe", "eth.mainnet", 0);
+    });
+
+    it('DeActivateOracleStatus - orc3.scribe', async () => {
+        const activeOracleResult3 = await activateOracleStatus("orc3.scribe", "eth.mainnet", 0);
+    });
+
 });

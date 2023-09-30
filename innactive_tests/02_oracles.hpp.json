@@ -611,5 +611,37 @@
             "active"
         ],
         "shouldFail": false
+    },
+    {
+        "description": "ACTION orcstatus - Updating oracle status to active for eth.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "orcstatus",
+            {
+                "oracle_id": "orc2.scribe",
+                "network_id": "eth.mainnet",
+                "active": 0
+            },
+            "orc2.scribe",
+            "active"
+        ],
+        "shouldFail": false
+    },
+    {
+        "description": "ACTION orcstatus - Updating oracle status to active for eth.mainnet",
+        "function": "sendTransaction",
+        "params": [
+            "nft.scribe",
+            "orcstatus",
+            {
+                "oracle_id": "orc3.scribe",
+                "network_id": "eth.mainnet",
+                "active": 0
+            },
+            "orc3.scribe",
+            "active"
+        ],
+        "shouldFail": false
     }
 ]
