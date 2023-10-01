@@ -14,14 +14,17 @@ This repository serves as documented due-diligence performed on the nft.scribe s
 - ❌ Manual: Code Logic Review, structures / structure functions
 - ❌ Manual: CPU Efficiency Study & Plan for improvement
 ### 2. Automated Tests of Public ACTION's
-- 👷 Automated: Unit testing of functions w/ out of bounds tests
-- 👷 Automated: Table value matching pushed data
-- ❌ Automated: Table value addition / subtraction / other tests
-- ❌ Automated: Virtual Account Tests
-- ❌ Automated: String Size Limitation Testing
+- ✅ Automated: networks.hpp public ACTION's
+- ✅ Automated: oracles.hpp public ACTION's
+- ✅ Automated: tokens.hpp public ACTION's
+- ✅ Automated: nftservice.hpp public ACTION's
+- ✅ Automated: networks.hpp public ACTION's
+- ✅ Automated: posts.hpp public ACTION's
+- 👷 Automated: transfer.hpp token testing
 ### 3. Manual Tests
-- 👷 Manual: Unit Tests of Internal Private Functions
-- ❌ Manual: Unit Tests of External Private Functions not part of 
+- ✅ Manual: Unit Tests of get_name_from_nft_number & get_nft_number_from_name
+- ✅ Manual: Post Created vs Expires Tests Time Tests
+- 👷 Manual: Token Transfer Testing
 ### 4. Security Tests
 - ❌ Automated: Fake Token Contract Deposits Test
 - ❌ Automated: `ACTION post` testing, invalid actions, invalid targets, invalid string data to exploit, etc.
