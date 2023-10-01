@@ -195,7 +195,7 @@ describe('nft.scribe - Unit Tests for posts.hpp (new.user)...', () => {
         const userid = "";
         const sign_type = 4; // "eth_signtypeddata_v4" corresponds to the value 4
         const evm_pub_key = "0x3335e5c6094ad126Bb497b122f8D5F42E0D4A4de";
-        const nft_id = 1;
+        const nft_id = 2;
 
         var tMoment = moment().utc();
         var tMomentPlus30 = moment().utc().add(180, 'seconds');
@@ -222,7 +222,7 @@ describe('nft.scribe - Unit Tests for posts.hpp (new.user)...', () => {
                 "userid": "",\
                 "tps_created": "' + tps_created + '",\
                 "tps_expires": "' + tps_expires + '",\
-                "exe_data": "1.nft|name.null...a|0|0|0|0|||0.0000 NULL"\
+                "exe_data": "2.nft|name.null...a|0|0|0|0|||0.0000 NULL"\
             }\
         }'; 
 

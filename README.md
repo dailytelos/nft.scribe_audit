@@ -24,9 +24,10 @@ This repository serves as documented due-diligence performed on the nft.scribe s
 ### 3. Manual Tests
 - ✅ Manual: Unit Tests of get_name_from_nft_number & get_nft_number_from_name
 - ✅ Manual: Post Created vs Expires Tests Time Tests
-- 👷 Manual: Token Transfer Testing
+- ✅ Manual: Token Transfer Testing (Transfer-In from external transfer.hpp)
+
 ### 4. Security Tests
-- ❌ Automated: Fake Token Contract Deposits Test
+- ✅ Manual: Fake Token Contract Deposits Test / Test fake TLOS deposit
 - ❌ Automated: `ACTION post` testing, invalid actions, invalid targets, invalid string data to exploit, etc.
 - ❌ Manual: Explore ramifications of other contracts interacting / denying transactions sent to them
 
