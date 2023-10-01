@@ -19,18 +19,19 @@ This repository serves as documented due-diligence performed on the nft.scribe s
 - ✅ Automated: tokens.hpp public ACTION's
 - ✅ Automated: nftservice.hpp public ACTION's
 - ✅ Automated: networks.hpp public ACTION's
-- ✅ Automated: posts.hpp public ACTION's
+- ✅ Automated: posts.hpp public ACTION's - New User Creation Post
 - 👷 Automated: transfer.hpp token testing
 ### 3. Manual Tests
+- ✅ Manual: "new.user" Upvote to Finalize Creation of New User from Automated Tests
 - ✅ Manual: Unit Tests of get_name_from_nft_number & get_nft_number_from_name
 - ✅ Manual: Post Created vs Expires Tests Time Tests
 - ✅ Manual: External Token Transfer-In Testing (Transfer-In from external transfer.hpp)
+- ❌ Manual: Internal Token Transfer (Intra-Service, Intra-Network, Outra-Network)
 ### 4. Security Tests
 - ✅ Manual: External Token Transfer-In to Users Unregistered Tokens (Unregistered Admin / Unregistered NFT Service)
 - ✅ Manual: External Token Transfer-In to Users Fake TLOS Token
 - ✅ Manual: Transaction expire testing & time thresholds
-- ❌ Automated: `ACTION post` testing, invalid actions, invalid targets, invalid string data to exploit, etc.
-- ❌ Manual: Explore ramifications of other contracts interacting / denying transactions sent to them
+- ❌ Manual / Automated: `ACTION post` testing, invalid actions, invalid targets, invalid string data to exploit, etc.
 
 ### Install
 - `git clone <github_repo_url>`
