@@ -5,7 +5,7 @@ Developement of nft.scribe contract by tlccstudio, who has several years experie
 
 This repository serves as documented due-diligence performed on the nft.scribe smart contract minimize risk of security breaches and ensure predictable functioning of code that handles virtual accounts.  An audit performed by a 3rd party would be more ideal, but until such time, this code serves as a public reference to the open-source code audit performed on the system thus far.  Certainly additional measures can be implemented in the future if this code base is to be widely relied upon.
 
-**No Warranty:** *This audit does not serve as a basis for official attestation or guaranteee for the nft.scribe smart contract as being totally bug free, or totally secure.*
+**No Warranty:** *This audit does not serve as a basis for official attestation or guaranteee for the nft.scribe smart contract as being totally bug free, or totally secure. No warranty is provided in this regard.*
 
 ## Completed So Far (✅ or ❌ or 👷)
 ### 1. Manual Study
